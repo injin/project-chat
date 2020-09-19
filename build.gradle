@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'eclipse-wtp'
+    id 'war'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+
+dependencies {
+    // Servlet API 라이브러리
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+    
+    // JSTL 구현 라이브러리
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    
+    // Spring WebMVC 라이브러리
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.1.RELEASE'
+    
+    // mariadb jdbc driver
+    compile group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.3.0'
+    
+    // mybatis 라이브러리
+    compile group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
+    
+    // mybatis spring 연동 라이브러리
+    compile group: 'org.mybatis', name: 'mybatis-spring', version: '1.3.2'
+    
+    // mybatis-spring 라이브러리를 지원해 주는 스프링 라이브러리
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '5.1.1.RELEASE'
+    
+    // Apache Common DBCP 라이브러리
+    compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+    
+    // AOP 라이브러리
+    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.2'
+    
+    // JSON 데이터를 처리하는 라이브러리
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.7'
+    compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.13'
+    
+    // Apache Tiles 라이브러리
+    compile group: 'org.apache.tiles', name: 'tiles-core', version: '3.0.8'
+    compile group: 'org.apache.tiles', name: 'tiles-jsp', version: '3.0.8'
+    
+    compile 'com.google.guava:guava:23.0'
+    testCompile 'junit:junit:4.12'
+    compile group: 'info.movito', name: 'themoviedbapi', version:'1.8'
+}
+
+// 라이브러리를 다운로드 받는 서버 설정
+repositories {
+    jcenter()
+}
